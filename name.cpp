@@ -11,7 +11,5 @@
 // we write a new function in quicksort branch
 
 
-// quick sort
 
-fsdf
-ffsf
+// insertion sort
