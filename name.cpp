@@ -2,4 +2,10 @@
 
 // lets do some changes
 
+
+
 // created new bubble sort branch with checkout -b 
+
+
+
+// we write a new function in quicksort branch
