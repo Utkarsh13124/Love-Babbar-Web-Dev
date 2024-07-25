@@ -1,76 +1,63 @@
-// object create
+//! Math Object
+    // MDN
 
-let rectangle = {
-    length : 1,
-    breadth : 2,
+//! String
+    // two types primitive and obje
+        // mdn
 
-    draw : function(){
-        console.log('drawing a rectangle');
-    }
-};
+    let firstName = new String('Utkarsh');
+    let lastname = "Pandey";
 
-//! creating multiple object 1
-// factory function
-    // this is creating a object and returning it.
-    // currently this is returning the rectangles of fixed length and breadth but we want that we decided what it should be.
+    // making primitive to object
+    // jaise hum dot operator lagate hi waise hi wo use as a object treat krne lag jata hi
+    console.log(lastname.includes('P'));
 
-function createRectangle(len , bre){
-    let rectangle = {
-        length : len,
-        breadth : bre,
     
-        draw : function(){
-            console.log('drawing a rectangle');
-        }
-        ,
-        draw1(){
-            console.log('Same funtion as above');
-        }
-    };
-    return rectangle;
-}
+// Split , trim , replace , startwith , endwith , trimstart , trimend, touppercase , length , include , 
+//let str = "I love My  Country";
+// split helps us to get all the word by splitting it by ' ' , 
 
-// ! type 2 creating object 
-// construcctor function
-    // return nhi krna hi , comma bhi use nhi ho raha hi
-let recObj1 = createRectangle(4,5);// createRectangle is returning the object.
+// Escape notation 
+//  \' ko use krne se hum ' print krwa payenge
 
-function Square(len , bre){
-    this.length = len;
-    this.breadth = bre;
-    this.draw = function(){
-        console.log('Drawing a sqaure');
+//! backticks --> template signal., hum kaise bhi text ko likh sakte hi 
+// if we want to refer to some variable , then use ${varName}
+
+
+//! Date and Time --> 5 format to create , you can refer MDN for it
+let date = new Date();
+// setFullYear , setMonth , all are function in the object , get and set function
+
+
+
+//! Array 
+    // collection of item , same or different
+
+    let numbers = [1 , 4 , 5 , 7 ];
+
+    // insertion --> begin , mid , end
+    numbers.push(9); // adding at last
+    numbers.unshift(8); // adding at starting
+    numbers.splice(2  , 0 , 'a' , 'b' , 'c'); // adding at idx , after deleting _element
+
+    // finding/ searching by indexOf method , if present give its idx value else -1 , (key , idx jaha se search tart krna hi)
+    if(numbers.indexOf(1 , 0) != -1){
+        console.log("Present");
     }
-}
+    // method second --> include
+    console.log(numbers.includes(4));// return true or false
 
-let newSq = new Square(4,6);
+// Array of Object
 
-// ! dynamic nature of object --> kisis bhi objecct ke ander , deletion bhi possible hi , insertion bhi possible hi . 
+let courses = [
+    {no : 1 , name : "love"},
+    {no : 2 , name : "babar"}
+];
+// indexof ka use krke hum Object ko search nhi kr sakte hi , kyuki dono ka reference alag hi , jo index of ke ander likha jaayega , aur jisko hum search krna chaah rha hi , 
+// primitive ke case of Indexof work krta hi
+// also not able to search by includes method
+// because here we search through val = val  
 
-newSq.area = 24; // inserting a property to an object 
-console.log(newSq);
-
-delete newSq.area;
-console.log(newSq);
-
-// ! constructor Property 
-    // every object will have constructor , function in javascript is also object.
-    // by default constructor ka bhi canstructor Function hota hi , or if not define then also its constructor will be Function
-    // Function internall bnata hi hum khud bhi bna sakte hi , 
-    // let Circle = new Function(' ', ' ', `  backtick ke ander poora code hota hi .`) 
-
-    // creating constructor of constructor ,
-let Circle = new Function('len' , 'bre' , `
-    this.length = len;
-    this.breadth = bre;
-    this.draw = function(){
-    console.log('Circle');
-    }
-    `)
-
-let cir = new Circle(37,4);
-console.log(cir);
-
-// Function are object
-
-// 1 hr 11 min . 
+// solution 53 : 30 min 
+// searching on object / reference 
+// callback function : - a callback function is a function passed in a function  as an argument , wwhich is then invoked inside the outer function to complete some kind of routine or action.
