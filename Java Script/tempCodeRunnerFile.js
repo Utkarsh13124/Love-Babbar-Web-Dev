@@ -1,4 +1,3 @@
-number1 = [];// # garbage collector will delete all the value.
-
-// console.log(number1);
-// console.log(number2)
+et stand = function walk(){ // hoisting will not work
+//     console.log("Walking");
+// };
