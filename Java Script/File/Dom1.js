@@ -2,9 +2,9 @@
 // getEleementbyId('heading')
 
 document.getElementById('Utkarsh');
-// we can access the id then we 
-// this method calls on the document object
-// returns a single object
+    // we can access the id then we 
+    // this method calls on the document object
+    // returns a single object
 
 // getElementsByClassName
     // return html colection like an object
@@ -19,8 +19,8 @@ document.getElementById('Utkarsh');
 
 
 // ways to access
-// id , class , tag
-// if we have selected some element then we could equate it with $0
+    // id , class , tag
+    // if we have selected some element then we could equate it with $0
 // querySelector
     // . class , # is , tag
     // single object is its output , 

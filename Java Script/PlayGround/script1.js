@@ -3,13 +3,14 @@
 
 // eventListener 
     // hw or do again task
-
+    // addeventlistener --> homework
 // fetch 
 
 // referring to html element
 const countValue = document.querySelector('#counter');
+// humari countValue ka add same rahega , aur ye hmesha counter ki value change krega  ,, hum const ko nhi change kr sakte hi , but counter jo iske ander ki value usko change kr sakte hi
 
-const increment = () => {
+function increment(){
     // get the value from UI
     let value = parseInt(countValue.innerText);
     // update the value 
