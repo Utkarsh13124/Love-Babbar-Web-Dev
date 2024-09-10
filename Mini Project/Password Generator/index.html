@@ -12,8 +12,9 @@
     <h1>Password Generator</h1>
 
     <div class="display-container">
+        <!-- using readonly in below code snippet allow us to not modify the password. -->
         <input readonly placeholder="Password" class="display" data-passwordDisplay> <!-- we could also select element by custum attribute by queryselector-->
-        <button>
+        <button data-copy>
             <span data-copyMsg></span>
             <img src="./Assets/copy.svg" alt="Copy" height="23" width="23">
         </button>
@@ -57,6 +58,6 @@
         <!-- generate password -->
         <button class="generateButton">Generate Password</button>
     </div>
-
+<script src="script.js"></script> 
 </body>
 </html>
