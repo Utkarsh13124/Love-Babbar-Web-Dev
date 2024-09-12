@@ -99,7 +99,7 @@ document.getElementById('Utkarsh');
 // Css change krna , java script ka use krke 
     // inline > internal > external 
 
-    // .style property
+    //! .style property
     // single property hi change hota hi , ek baar
     // let content = $0;
     // content.style.property name = 'single changes';

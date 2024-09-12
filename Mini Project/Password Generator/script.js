@@ -7,7 +7,7 @@ const copyMsg = document.querySelector("[data-copyMsg]");
 const uppercaseCheck = document.querySelector("#uppercase");
 const lowercaseCheck = document.querySelector("#lowercase");
 const numbersCheck = document.querySelector("#numbers");
-const symbolCheck = document.querySelector("#symbols");
+const symbolsCheck = document.querySelector("#symbols");
 const indicator = document.querySelector("[data-indicator]");
 const generateBtn = document.querySelector(".generateButton");
 const allCheckBox = document.querySelectorAll("input[type=checkbox]"); // imp
@@ -151,6 +151,7 @@ copyBtn.addEventListener('click' , () => {
 });
 
 generateBtn.addEventListener('click' , () => {
+    // console.log("Clicked on btn");
     // none of the checkbox are selected
     if(checkCount == 0) return ;
 
@@ -175,7 +176,7 @@ generateBtn.addEventListener('click' , () => {
     // if(numbersCheck.checked){
     //     password += generateNumber();
     // }
-    // if(symbolCheck.checked){
+    // if symbolsCheck.checked){
     //     password += generateSymbol();
     // }
 
@@ -184,8 +185,9 @@ generateBtn.addEventListener('click' , () => {
     if(uppercaseCheck.checked) funcArr.push(generateUppercase);
     if(lowercaseCheck.checked) funcArr.push(generateLowercase);
     if(numbersCheck.checked) funcArr.push(generateNumber);
-    if(symbolCheck.checked) funcArr.push(generateSymbol);
+    if (symbolsCheck.checked) funcArr.push(generateSymbol);
 
+    // console.log("Before Compulsory addition");
     // compulsory addition 
     for(let i = 0 ; i < funcArr.length; i++){
         password += funcArr[i]();
