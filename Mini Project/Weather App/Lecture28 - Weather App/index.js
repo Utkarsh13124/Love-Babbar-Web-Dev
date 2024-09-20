@@ -141,6 +141,7 @@ grantAccessButton.addEventListener("click", getLocation);
 const searchInput = document.querySelector("[data-searchInput]");
 
 searchForm.addEventListener("submit", (e) => {
+    // console.log("Searcha");// working
     e.preventDefault();
     let cityName = searchInput.value;
 

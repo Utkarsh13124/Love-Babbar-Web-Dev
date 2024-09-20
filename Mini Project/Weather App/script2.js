@@ -7,17 +7,17 @@ const searchForm = document.querySelector("[data-searchForm]");
 const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
 
-let currentTab = userTab;
+let oldTab = userTab;
 const API_KEY = "2eae51938341b642d6c24dd00e35394e";
-currentTab.classList.add("current-tab");
-
+oldTab.classList.add("current-tab");
+getfromSessionStorage();
 // ek kaam aur pending hi
 
-function switchTab(clickedTab){
-    if(clickedTab != currentTab){// button ke UI me change kr diya
-        currentTab.classList.remove("current-tab");
-        currentTab = clickedTab;
-        currentTab.classList.add("current-tab");
+function switchTab(newTab){
+    if(newTab != oldTab){// button ke UI me change kr diya
+        oldTab.classList.remove("current-tab");
+        oldTab = newTab;
+        oldTab.classList.add("current-tab");
 
         // tab ke UI me change krna
         if(!searchForm.classList.contains("active")) {
@@ -30,19 +30,21 @@ function switchTab(clickedTab){
             // means pehle search tab pr tha , ab weather tab visible krna h
             searchForm.classList.remove("active");
             userInfoContainer.classList.remove("active");
-            getInfoSessionStorage(); // getting current location from current session if stored
+            getfromSessionStorage(); // getting current location from current session if stored
         }
     }
 
 }
 
 userTab.addEventListener("click",()=>{
-    // pass clickedtab as input parameter 
+    // pass userTab as input parameter 
     switchTab(userTab);
 });
 searchTab.addEventListener("click",()=>{
-    // pass clickedtab as input parameter 
+    // pass userTab as input parameter 
+    console.log( "search1");
     switchTab(searchTab);
+    console.log( "search2");
 });
 
 
@@ -55,29 +57,31 @@ function getfromSessionStorage(){
     }
     else{
         const coordinates = JSON.parse(localCoordinates);// coverts into json string
-        fetchUserWeatherInfo();
+        fetchUserWeatherInfo(coordinates);
     }
 }
 
-async function fetchUserWeatherInfo(){
+async function fetchUserWeatherInfo(coordinates){
     const {lat, lon} = coordinates;
+    // console.log(lat);// working
     // make grantcontainer invisible
     grantAccessContainer.classList.remove("active");
     // make loader visible
     loadingScreen.classList.add("active");
-}
 
-// API call
-try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2eae51938341b642d6c24dd00e35394e&units=metric`);
-    const data = await response.json();// this line conerts into json object
 
-    loadingScreen.classList.remove("remove");
-    userInfoContainer.classList.add("active");
-    renderWeatherInfo(data);
-} catch (err) {
-    //hw
-    loadingScreen.classList.remove("active");
+    // API call
+    try {
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
+        const data = await response.json();// this line conerts into json object
+
+        loadingScreen.classList.remove("remove");
+        userInfoContainer.classList.add("active");
+        renderWeatherInfo(data);
+    } catch (err) {
+        //hw
+        loadingScreen.classList.remove("active");
+    }
 }
 
 function renderWeatherInfo(weatherInfo){
@@ -92,31 +96,41 @@ function renderWeatherInfo(weatherInfo){
     const humidity = document.querySelector("[data-humidity]");
     const cloudiness = document.querySelector("[data-cloudiness]");
 
+    // console.log(weatherInfo);
+    // console.log( "hello");
     // fetch values from weatherInfo object and put it UI elements
-    // 1 hr 16min
-    cityName.innerText = weatherIcon?.name;// as in database after connverting given response into json we see that it is direct child of object
+    // 1 hr 16minconsole.log( "hello1");
+    cityName.innerText = weatherInfo?.name;// as in database after connverting given response into json we see that it is direct child of object
+    // console.log( "hello2");
     countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;// optional chaining humhe error nhi deta hi agar object nhi hi to ye return krta hi ek undefined
+    // console.log( "hello3");
     desc.innerText = weatherInfo?.weather?.[0]?.description;
-    weatherIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.weather?.[0]?.icon}.png`;// optional chaining humhe error nhi deta hi agar object nhi hi to ye return krta hi ek undefined
-    temp.innerText = weatherIcon?.main?.temp;
-    windspeed.innerText = weatherIcon?.wind?.speed;
-    humidity.innerText = weatherInfo?.main?.humidity;
-    cloudiness.innerText = weatherInfo?.clouds?.all;
-
+    weatherIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
+    // console.log( "hello4");
+    temp.innerText = `${weatherInfo?.main?.temp} °C`;
+    windspeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
+    humidity.innerText = `${weatherInfo?.main?.humidity}%`;
+    cloudiness.innerText = `${weatherInfo?.clouds?.all}%`;
+    // console.log( "hello5");// working
 }   
 
-function showPosition(position){
+function showPosition(position) {
+
     const userCoordinates = {// storing position
         lat: position.coords.latitude,
         lon: position.coords.longitude,
     }
+    // console.log(lat);
 
-    sessionStorage.setItem("user-coordinates" , JSON.stringify(userCoordinates));    // storing user-coordinates
+    sessionStorage.setItem("user-coordinates", JSON.stringify(userCoordinates));
     fetchUserWeatherInfo(userCoordinates);
+
 }
 
 function getLocation(){
+    console.log("getLocation called."); // working
     if(navigator.geolocation){// geolocation is a api , which have method to take location of user, so we checkingthat navigator is supporting geolocation api in device or not.
+        console.log("geoLocation exist");// working
         navigator.geolocation.getCurrentPosition(showPosition);
     }else{
         // show alert 
@@ -124,13 +138,14 @@ function getLocation(){
     }
 }
 
-
-
+// getLocation();
+const grantAccessButton = document.querySelector("[data-grantAccess]");
 grantAccessButton.addEventListener('click',getLocation);
 
 const searchInput = document.querySelector("[data-searchInput]");
 
 searchForm.addEventListener("submit", (e) => {
+    console.log("Searcha");// working
     e.preventDefault();
     let cityName = searchInput.value;
 
