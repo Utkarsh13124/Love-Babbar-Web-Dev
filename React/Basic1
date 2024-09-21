@@ -1,1 +1,45 @@
+Homework :- 
+- props.children
+- react --> document first 4 chapter till components and props.
+
+
 React --> JS Library --> UI create krna. 
+React is all about component.(A reusable Piece)
+
+component se hum  custom HTML element create krte hi. 
+Component based architecture. 
+
+Why need? kyuki JS ek Imperative Approach, react ko to bta do , end state wo khud kr lega , js me steps by steps krna hota hi, more code here, low level <details>
+    React chota code ,  end state , easy.</details>
+
+React declarative ApproachSingle Page application , approach , means ki single html file hi. 
+
+steps to create new single page application.
+    Step 1 : - Install Noode JS
+    2 . VS <code>3. Create a new folder --> react folio</code>
+    3. change directory to reactfolio 
+    npx create-react-app demoshopapp
+    change directory to demoshopapp
+    npm start
+
+2nd way
+    fasteee
+    use replit
+
+3rd way
+    starter pack
+    https://github.com/thepranaygupta/react-tailwind-css-starter-pack
+
+
+Package.json me dependecy and scripts likhi hi 
+
+Index.js in src , sabse pehle yhi file execute hoti hi
+App content sabse pehle react ke ander add hota hi.
+
+can you create a component :
+    Create a file in coponenets 
+    import css file in js
+    also in app. 
+
+Can you style a component : 
+    yes with help of className
