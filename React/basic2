@@ -1,0 +1,45 @@
+react ke ander addeventlistener ka alternative --> onClick={} se hum event handling krte hi.
+    props addition kke dvara hum event handling krte hi.
+    addeventlistener ek imperative approach.
+
+ UI ko change krna value ke change hone pr.
+    'kabhi koi bhi cheez change krne par use dikhana ho to hum use state concept.. 
+
+    value change krne se UI change nhi hoga , without state concept.
+
+    import {userState} from 'react'
+    const [tittle , setTittle] = userState(props.tittle);
+    // user state do cheeze return krta hi , first the value , current wali , and and a function to set it
+    so for changes at UI
+        first change first output of userState , then use setter means the 2nd function.
+
+Syntax ka ratta nhi marna krte krte khud hi yaad ho jayega nhi to net pr dekh loonga.
+
+<product/> agar tumhare element ke ander content nhi hi to is prakar se bhi likh sakte ho
+
+onchange() , event ko input  field ke ander lagaya to kya hua, ye bhi  onclick event ki tarah hi hi.
+    isse jaise hi hhum input ke ander kuch likhenge , wo turant hi hander ko call kr dega
+    onchange(handler) , as a input property ,  
+
+    isme hander ke ander event naam ka object by default aata hi
+    so event.target.value ka use krke hum uske ander ki value dekh sakte hi. 
+
+event --> addevent listener ke ander hum jis cheez ke upar bhi listener laga rhe hote hi , usko hum event ke dvara fetch kr sakte hi 
+
+setTittle , setDate ye saare function , saare function , scedule kr dete hi.
+
+userstate ke jariye hi hum kayi sare parameters bhi change kr sakte hi
+
+objet bna ke sab ko ek saath bhi kr sakte hi. 
+
+values entered by user --> making object off that , with help of event handler , onSubmit  in form calling handler , userState
+
+useState ek hook hi , jo ek array return krta hhi. 
+  
+
+
+
+Children to parent communication:- 
+    Every parent have handler and call but last children have only call.
+    this way children could access children. 
+
