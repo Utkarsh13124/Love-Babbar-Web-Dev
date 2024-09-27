@@ -1,0 +1,32 @@
+npx create-react-app dummy   --> command to make a new react app 
+
+
+useEffect() -- > new hook we are going to study tody. 
+    used to manage all side effefect
+    SideEffect --> A sideeffect is a change 
+        update dom , 
+        but hum jis component pr render kr rhe hi , usko chodkr khi aur effect ho ha hi
+         
+
+Concepts used --> 
+input tag , with this we can create text input , date input  , gmail input , number input , slider checboxes
+
+onclick attributes are used to call function on clicks , generallly used with button , img , paragraph like showless , readmore  to submit thing
+onchange is used to call , for changes , like changes in input generally I have used it with text , dates , textarea , select
+
+
+    const [text, setText] = useState('');
+
+    function changeHandler(e) {
+        // e is the event object, e.target is the input element
+        // e is contained informance about the triggered 
+        setText(e.target.value);
+        console.log({text});
+    }
+    console.log({text});// input type of text is object
+    console.log(text); // input type of text is string
+
+
+strict mode --> developer mode , 
+production mode --> no strict mode
+    in strict mode , while invoking the application it , invoke twice certain function which innclude useEffect , later when come we will discussing them. 
