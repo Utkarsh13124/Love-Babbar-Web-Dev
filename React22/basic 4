@@ -30,3 +30,10 @@ onchange is used to call , for changes , like changes in input generally I have 
 strict mode --> developer mode , 
 production mode --> no strict mode
     in strict mode , while invoking the application it , invoke twice certain function which innclude useEffect , later when come we will discussing them. 
+
+
+Mount krna , and unmount krna 
+    mount --> component add krna        
+
+
+Do  homework , make a page and show size changes of paper.
