@@ -1,3 +1,9 @@
 map ka use krke last time humne ek line se hi kayi saare cards bna diye the,
     iss bar bhi map ka use krke kayi saare filter bna rhe hi
 
+    return statement ka use kro , 
+
+Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+
+    resolved this error , this comes when we not export from component are using it. 
+    also  I got error due to using function , directly , so I am using arrow function

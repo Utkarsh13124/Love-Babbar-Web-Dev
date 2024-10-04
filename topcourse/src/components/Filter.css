@@ -1,0 +1,9 @@
+.filterBtnContainer {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.filterBtn {
+    margin: 5px; /* Adjust the margin as needed */
+}
