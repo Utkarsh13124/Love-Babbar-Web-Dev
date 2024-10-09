@@ -1,7 +1,8 @@
+
 import React from 'react';
 import './Filter.css';
 
-const Filter = ({ filterData }) => { // receiving props
+const Filter = ({ filterData }) => { // receiving props only filterData , but if we receive props , then we can fetch other setails as well
     // is tarah bnane pr Filter wala error shayad nhi aata , as i got struck on Project 1
     return (
         <div className='filterBtnContainer'>

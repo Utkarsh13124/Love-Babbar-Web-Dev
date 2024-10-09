@@ -1,48 +1,65 @@
-import React, { useEffect, useState } from "react";
-import { apiUrl, filterData } from "./data";
-import Navbar from './components/Navbar';
-import Filter from './components/Filter';
-import Cards from './components/Cards';
-import { toast } from 'react-toastify';
+import React from "react";
+import Navbar from "./Components/Navbar";
+import Filter from "./Components/Filter";
+import Cards from "./Components/Cards";
+import Spinner from "./Components/Spinner";
+import { apiUrl, filterData } from "./data.js";
 
+import { toast } from "react-toastify";// for using toast
 
-const  App = () => {
+import { useEffect, useState } from "react";
 
-  const [courses, setCourses] = useState(null);
-  // we stored it initially null , when ourUseeffect run , it stores the data with our value.
+const App = () => {
+  // const [courses, setCourses] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [laoding, setLoading] = useState(true);
+  const [category, setCategory] = useState(filterData[0].title);// initialization is very important , as when something is initialized with null , cant excessed anything from it. 
+  // null error aa rhi hi , to usko uske base se track kro. 
 
-  // using useEffect hook to fetch API data after rendering
-  useEffect( () => {
-    // writing function inside function , then  calling it
-    const fetchData = async() =>{
-      try {
-        const res = await fetch(apiUrl);
-        const output = await res.json();   
-        // save output in some variable , using useState
-        setCourses(output.data);
-        // console.log(output);      
-      }
-      catch(error) {
-        toast.error("Something went wrong");
-      }
+  const fetchData = async () => {// here we learn to show loading indicator
+    setLoading(true);
+    try {
+      const res = await fetch(apiUrl);
+      const output = await res.json();
+
+      // Save data
+      setCourses(output.data);
+      // setCourses(output);
+    } catch (err) {
+      toast.error("Something Went Wrong");
     }
+    setLoading(false);
+  };
 
+  useEffect(() => {
     fetchData();
-
-  } , []);
+  }, []);
 
   return (
-    <div className="App">
-      <Navbar/>
+    <div className="min-h-screen flex-col flex bg-bgDark2">
+      <div>
+        <Navbar />
+      </div>
 
-      <Filter
-        filterData = {filterData}
-      />
+      <div className="bg-bgDark2">
+        <div>
+          <Filter
+            filterData={filterData}
+            category={category}
+            setCategory={setCategory}
+          />
+        </div>
 
-      <Cards courses="courses"/>
-
+        <div className="w-11/12 max-w-[1200px] min-h-[50vh] mx-auto flex flex-wrap justify-center items-center">
+          {laoding ? (
+            <Spinner />
+          ) : (
+            <Cards courses={courses} category={category} />
+          )}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
