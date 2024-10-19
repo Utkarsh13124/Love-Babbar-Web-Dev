@@ -1,0 +1,23 @@
+.box{
+    border : 1px solid black;
+    height: 200px;
+    width: 150px;
+    /* applying a  linear linear */
+    background-image: linear-gradient(to bottom right ,red , black);
+    background-image: linear-gradient(to right, red , green);
+    background-image: linear-gradient(to bottom right ,red , green);
+    background-image: linear-gradient(210deg,red , green);
+    background-image: linear-gradient(to bottom,rgba(255,0,0,0) , rgba(0,0,255,1));
+    /* humne bgc ko kyi baar overwrite kiya hi , to sirf last wali hi chalegi.
+    rgba  me last wali value transparency ki hi */
+}   
+
+.mydiv{
+    border: 1px solid black; 
+    margin: 10px;
+    height: 400px;
+    width: 300px;
+    background-image: radial-gradient(red , blue);
+    background-image: radial-gradient(circle , red , blue);
+    background-image: radial-gradient(yellow 5% , orange 10% , red 50% );
+}

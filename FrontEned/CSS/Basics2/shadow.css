@@ -1,0 +1,23 @@
+h1{
+    text-shadow:3px 3px 3px red;/*horizontal , vertical blurr color*/
+    text-shadow:3px 3px 3px red , 5px 5px 5px green;/*horizontal , vertical blurr color*/
+}
+
+.box{
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    box-shadow: -10px -10px 10px green, 15px 15px 15px brown ;
+    transform: translate(100px , 250px); /*2d me move krane ke liye */
+    transform: rotate(-45deg); /*2d me rotate  krane ke liye  + for anticlockwise, - for */
+    transform: scale(2,3); /*first attribute horizontal scaling kr rha hi , and second wala vertical stretch kr rha hi */
+    transform: skew(45deg); /* tilt krne ke kaam aata hi */
+    transform:matrix();/* above saari property ko ek saath hi kr sakte hi. */
+}
+
+#divi{
+    height: 250;
+    width : 300px;
+    border: 1px solid black;
+    overflow: scroll;
+}
