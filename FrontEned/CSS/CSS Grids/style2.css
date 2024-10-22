@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.container{
+    background-color: brown;
+    border: 3px solid black;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr 150px;/*setting 3 ccolumn*/
+    grid-template-rows: 30px repeat(1 , 1fr) 30px; /*setting 3 row*/
+    gap: 3px; /*gap between each grid item*/
+}
+/* fr means fraction is unit which is used to equal */
+.box{
+    background-color: aqua;
+    border: 3px solid black;
+    /* width: 80px; */
+    /* height: 80px; */
+}
+
+/* overflow me height apne app adjust kr lete hi.  */
+/*------------------------------------------------ItemProperties------------------------------------------------*/
+#box1 , #box4{
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+#box3{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
