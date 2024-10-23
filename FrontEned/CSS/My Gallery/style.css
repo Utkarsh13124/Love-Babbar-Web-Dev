@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+}
+
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%; /*means poora wrapper ki height ke equal hoga*/
+    max-width: 1200px;/*kam content dalenge to humara block utna hi rhega , aur daalenge to badega badega but maximum 1200 tk hi bad paayega.*/
+    margin: 0 auto;/*left side aur right side me iss tarh se margin lagaya jata hi container humara center me aa jata hi.*/
+    padding: 20px;
+}
+
+.container h1{
+    margin: 20px 0;/*top and  bottom , left and right margin*/
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex;/*default main axis horizontal kr diya */
+    flex-wrap: wrap;/*wrap kr diya nhi to saari ki saari images ek line me hi aa jati */
+    justify-content: space-between;
+}
+
+.card{
+    width: 32%;
+    /*content ki jitni hight hogi wo utna apne aap hi le lega , default */
+    position: relative;/*as later on hum text ko overlap krwana chahte hi.*/
+    margin-bottom: 20px;
+    border-radius: 10px;/*rounded krne ke liye*/
+    overflow: hidden;/*agar picture ki width jyada hi to use cut krna side se , jisse ki sab ek jaisi width me aa sake.*/
+}
+
+.card img{
+    width: 100%;
+    filter: grayscale(100%);/*applying greyscale*/
+    box-shadow : 0 0 20px #333;
+    height: 100%; /*poori figure wale div ki height le liya , caption bhi kha  gya*/
+    object-fit: cover; /*humara image fit ho jayegi */
+}
+
